@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  background-color: #030509;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header,
+.footer {
+  background-color: #030509;
+  padding: 1rem;
+  text-align: center;
+}
+
+.body {
+  flex: 1;
+  padding: 1rem;
+}
+
+.carousel-indicators {
+  bottom: 8px;
+}
+
+.carousel-control-prev {
+  display: none;
+}
+
+.carousel-control-next {
+  display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .header,
+  .body,
+  .footer {
+    padding: 0.5rem;
+  }
+}
