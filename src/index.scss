@@ -45,6 +45,23 @@ body {
   display: none;
 }
 
+.react-multiple-carousel__arrow--left {
+  left: 0;
+  top: 300px;
+}
+.react-multiple-carousel__arrow--right {
+  right: 0;
+  top: 300px;
+}
+.react-multiple-carousel__arrow::before {
+  font-size: 16px;
+  color: #ffa701;
+  display: block;
+  font-family: revicons;
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
 /* Responsive styles */
 @media (max-width: 600px) {
   .header {

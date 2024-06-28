@@ -5,8 +5,29 @@ import FlagImage from "../assets/flagImage.png";
 import CustomerSatisfaction from "../assets/customerSatisfaction.svg";
 import Clock from "../assets/clock.svg";
 import FinanceDocs from "../assets/financeDocs.svg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import Car from "../assets/car.png";
+import Phone from "../assets/phone.svg";
 
 export default function Main() {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
   const array = [
     {
       title: "کوتاه ترین زمان ممکن",
@@ -24,6 +45,18 @@ export default function Main() {
       image: CustomerSatisfaction,
     },
   ];
+  const sliderItems = [
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 3, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 3, phone: "" },
+    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
+  ];
+  const statusEnum = { 1: "موجود", 2: "ناموجود", 3: "نامشخص" };
+  const deviceType = "desktop";
   return (
     <>
       <div
@@ -161,7 +194,7 @@ export default function Main() {
         </div>
         <div
           style={{
-            margin: "20% 0",
+            margin: "20% 0 0 0",
             display: "flex",
             width: "100%",
             alignItems: "center",
@@ -183,8 +216,7 @@ export default function Main() {
 
                       width: "50%",
                       borderRadius: "10px",
-                      background:
-                        "linear-gradient(180deg, rgba(21,24,30,1) 0%, rgba(0,0,0,0) 80%)",
+                      background: "linear-gradient(180deg, rgba(21,24,30,1) 0%, rgba(0,0,0,0) 80%)",
                     }}
                   >
                     <span style={{ color: "white" }}>{item.title}</span>
@@ -206,6 +238,123 @@ export default function Main() {
                 );
               })}
           </div>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <span
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineBreak: "normal",
+              padding: "0px 0px 20px",
+              textAlign: "center",
+            }}
+          >
+            میهمانان اخیر راکرموتورز
+          </span>
+          <Carousel
+            swipeable={false}
+            draggable={true}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlay={deviceType !== "mobile" ? true : false}
+            autoPlaySpeed={5000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={1000}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            deviceType={deviceType}
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {sliderItems.length > 0 &&
+              sliderItems.map((item, index) => {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      margin: "10px",
+                    }}
+                  >
+                    <img
+                      style={{ backgroundColor: "gray", height: "250px" }}
+                      src={item.image}
+                      alt="slider1"
+                    />
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "7px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: "white",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {item.title}
+                      </span>
+                      <span
+                        style={{
+                          color: "white",
+                          fontSize: "12px",
+                        }}
+                      >
+                        {item.info}
+                      </span>
+                      <span
+                        style={{
+                          color: "white",
+                          fontSize: "12px",
+                        }}
+                      >
+                        وضعیت :{" "}
+                        <span
+                          style={{
+                            color:
+                              item.status === 1 ? "#33FF00" : item.status === 2 ? "#FFA200" : "red",
+                          }}
+                        >
+                          {statusEnum[item.status]}
+                        </span>
+                      </span>
+                      <div
+                        style={{
+                          display: "flex",
+                          borderRadius: "8px",
+                          border: "1px solid #313131",
+                          padding: "5px",
+                          gap: "5px",
+                        }}
+                      >
+                        <img src={Phone} alt="phone" />
+                        <span
+                          style={{
+                            color: "white",
+                            fontSize: "12px",
+                          }}
+                        >
+                          اطلاعات تماس
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+          </Carousel>
         </div>
       </div>
     </>
