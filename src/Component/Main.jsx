@@ -9,6 +9,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Car from "../assets/car.png";
 import Phone from "../assets/phone.svg";
+import BackgroundImage from "../assets/backgroundImage.svg";
 
 export default function Main() {
   const responsive = {
@@ -59,8 +60,13 @@ export default function Main() {
   const deviceType = "desktop";
   return (
     <>
+      <img
+        src={BackgroundImage}
+        style={{ position: "absolute", left: "0", right: "0", width: "inherit" }}
+        alt="wallpaper"
+      />
       <div
-        style={{ display: "flex", flexDirection: "column", margin: "0 0 30% 0", gap: "150px" }}
+        style={{ display: "flex", flexDirection: "column", margin: "0 0 20% 0", gap: "150px" }}
         className="body"
       >
         <div style={{ position: "relative" }}>
