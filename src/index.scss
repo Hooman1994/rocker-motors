@@ -64,12 +64,12 @@ body {
 /* Responsive styles */
 @media (max-width: 600px) {
   .header {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
   .body {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
   .footer {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
 }
