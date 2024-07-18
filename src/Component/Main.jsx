@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CarouselComponent from "./Carousel";
 import ChevronLeft from "../assets/chevron-left.svg";
 import FlagImage from "../assets/flagImage.png";
@@ -12,6 +12,7 @@ import Phone from "../assets/phone.svg";
 import BackgroundImage from "../assets/backgroundImage.svg";
 
 export default function Main() {
+  const [open, setOpen] = useState(false);
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -290,6 +291,9 @@ export default function Main() {
                       flexDirection: "column",
                       margin: "10px",
                     }}
+                    onClick={() => {
+                      return setOpen(true);
+                    }}
                   >
                     <img
                       style={{ backgroundColor: "gray", height: "250px" }}
@@ -363,6 +367,56 @@ export default function Main() {
           </Carousel>
         </div>
       </div>
+      {open && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            alignItems: "center",
+            position: "fixed",
+            zIndex: "1000",
+            width: "100%",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.82)",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              background: "#16181E",
+              border: "1px solid #FFA200",
+              borderRadius: "10px",
+              height: "50%",
+              width: "50%",
+            }}
+          >
+            test
+          </div>
+          <span
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#363636",
+              color: "white",
+              width: "20px",
+              height: "20px",
+              borderRadius: "50%",
+            }}
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            X
+          </span>
+        </div>
+      )}
     </>
   );
 }
