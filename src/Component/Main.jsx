@@ -10,6 +10,10 @@ import "react-multi-carousel/lib/styles.css";
 import Car from "../assets/car.png";
 import Phone from "../assets/phone.svg";
 import BackgroundImage from "../assets/backgroundImage.svg";
+import carModal1 from "../assets/carModal1.png";
+import carModal2 from "../assets/carModal2.png";
+import carModal3 from "../assets/carModal3.png";
+import carModal4 from "../assets/carModal4.png";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -63,7 +67,7 @@ export default function Main() {
     <>
       <img
         src={BackgroundImage}
-        style={{ position: "absolute", left: "0", right: "0", width: "inherit" }}
+        style={{ position: "absolute", left: "0", right: "0", width: "100%" }}
         alt="wallpaper"
       />
       <div
@@ -392,11 +396,81 @@ export default function Main() {
               background: "#16181E",
               border: "1px solid #FFA200",
               borderRadius: "10px",
-              height: "50%",
-              width: "50%",
+              width: "60%",
+              height: "fit-content",
+              padding: "10px",
             }}
           >
-            test
+            <div
+              style={{
+                flex: "2",
+                width: "80%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "inherit",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={carModal1} style={{}} alt="car1" />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    height: "20%",
+                    width: "100%",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <img src={carModal2} style={{ width: "30%" }} alt="car2" />
+                  <img src={carModal3} style={{ width: "30%" }} alt="car3" />
+                  <img src={carModal4} style={{ width: "30%" }} alt="car4" />
+                </div>
+              </div>
+            </div>
+            <div style={{ flex: "1", width: "90%", height: "100%" }}>
+              <span>BMW X4</span>
+              <div>
+                <div style={{ display: "flex" }}>
+                  <div
+                    style={{
+                      borderRadius: "15px",
+                      boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                    }}
+                  >
+                    <div>
+                      <span>کارکرد:</span>
+                      <span>70 km</span>
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      borderRadius: "15px",
+                      boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                    }}
+                  >
+                    <div>
+                      <span>سال تولید:</span>
+                      <span>2015</span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    borderRadius: "15px",
+                    boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                  }}
+                >
+                  <div>
+                    <span>وضعیت بدنه:</span>
+                    <span>بدون رنگ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <span
             style={{
