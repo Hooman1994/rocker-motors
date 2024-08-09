@@ -14,6 +14,7 @@ import carModal1 from "../assets/carModal1.png";
 import carModal2 from "../assets/carModal2.png";
 import carModal3 from "../assets/carModal3.png";
 import carModal4 from "../assets/carModal4.png";
+import closeBtn from "../assets/closebtn.png";
 
 export default function Main() {
   const [open, setOpen] = useState(false);
@@ -67,7 +68,7 @@ export default function Main() {
     <>
       <img
         src={BackgroundImage}
-        style={{ position: "absolute", left: "0", right: "0", width: "100%" }}
+        style={{ position: "absolute", left: "0", right: "0", width: "100%", zIndex: "-1" }}
         alt="wallpaper"
       />
       <div
@@ -121,6 +122,7 @@ export default function Main() {
                 padding: "7px 20px 7px 10px",
                 borderRadius: "5px",
                 gap: "5px",
+                cursor: "pointer",
               }}
             >
               <span>اطلاعات تماس</span>
@@ -156,28 +158,46 @@ export default function Main() {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  width: "100%",
-                  height: "200px",
+                  width: "98%",
+                  height: "auto",
                   textAlign: "right",
                   backgroundColor: "#11141A",
                   borderRadius: "5px",
-                  padding: "0 500px 0 25%",
+                  padding: "15px 500px 15px 25%",
                   justifyContent: "center",
-                  color: "white",
                   fontSize: "14px",
+                  direction: "rtl",
+                  fontWeight: "lighter",
+                  gap: "12px",
+                  color: "#DCDCDC",
                 }}
               >
                 <span>
-                  شرکت راکرموتورز با هدف ارتقاع سطح کیفی معاملات خودرویی و عقد قرارداد در بستری
-                  مطمعن تاسیس شد,{" "}
+                  شرکت راکرموتورز با{" "}
+                  <span style={{ fontWeight: "bold", color: "white" }}>
+                    هدف ارتقا سطح کیفی معاملات
+                  </span>{" "}
+                  خودرویی و{" "}
+                  <span style={{ fontWeight: "bold", color: "white" }}>
+                    عقد قرارداد در بستری مطمئن
+                  </span>{" "}
+                  تاسیس شد.{" "}
                 </span>
                 <span>
-                  مجموعه راکرموتورز با دارا بودن 7 پارکینگ اختصاصی توانایی پذیرش خودرو های مراجعه
-                  کنندگان گرامی را داشته و مراجعه کنندگان میتوانند خودرو ی خود را با رسید امانت به
-                  مجموعه سپرده تا خودرو در فضایی امن به رویت خریداران برسد
+                  مجموعه راکرموتورز با دارا بودن
+                  <span style={{ fontWeight: "bold", color: "white" }}>
+                    {" "}
+                    7 پارکینگ اختصاصی
+                  </span>{" "}
+                  توانایی <span style={{ fontWeight: "bold", color: "white" }}>پذیرش خودرو</span>
+                  های مراجعه کنندگان گرامی را داشته و مراجعه کنندگان میتوانند خودرو ی خود را با{" "}
+                  <span style={{ fontWeight: "bold", color: "white" }}>رسید امانت</span> به مجموعه
+                  سپرده تا خودرو{" "}
+                  <span style={{ fontWeight: "bold", color: "white" }}>در فضایی امن</span> به رویت
+                  خریداران برسد
                 </span>
               </div>
-              <div style={{ position: "absolute", right: "20px", top: "-15%" }}>
+              <div style={{ position: "absolute", right: "20px", top: "-30%" }}>
                 <img style={{ width: "60%" }} src={FlagImage} alt="" />
               </div>
             </div>
@@ -196,10 +216,10 @@ export default function Main() {
                 textAlign: "right",
               }}
             >
-              <span style={{ color: "#DCDCDC", fontSize: "14px" }}>
+              <span style={{ color: "#DCDCDC", fontSize: "14px", fontWeight: "lighter" }}>
                 آدرس دفتر: تهران, محمودیه, خیابان سالار, پلاک14, ساختمان سالوک4, واحد401
               </span>
-              <span>0912 505 1070</span>
+              <span style={{ fontSize: "12px", fontWeight: "bold" }}>0912 505 1070</span>
             </div>
           </div>
         </div>
@@ -218,16 +238,17 @@ export default function Main() {
                 return (
                   <div
                     style={{
+                      zIndex: "10",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "space-evenly",
                       alignItems: "center",
                       textAlign: "center",
                       height: "200px",
-
                       width: "50%",
                       borderRadius: "10px",
-                      background: "linear-gradient(180deg, rgba(21,24,30,1) 0%, rgba(0,0,0,0) 80%)",
+                      background:
+                        "linear-gradient(180deg, rgba(21,24,30,1) 30%, rgba(0,0,0,0) 80%)",
                     }}
                   >
                     <span style={{ color: "white" }}>{item.title}</span>
@@ -294,6 +315,7 @@ export default function Main() {
                       display: "flex",
                       flexDirection: "column",
                       margin: "10px",
+                      cursor: "pointer",
                     }}
                     onClick={() => {
                       return setOpen(true);
@@ -386,6 +408,7 @@ export default function Main() {
             right: 0,
             bottom: 0,
             backgroundColor: "rgba(0, 0, 0, 0.82)",
+            gap: "10px",
           }}
         >
           <div
@@ -399,75 +422,154 @@ export default function Main() {
               width: "60%",
               height: "fit-content",
               padding: "10px",
+              boxShadow: "0px 0px 63px -40px rgba(255,255,255,1)",
             }}
           >
             <div
               style={{
-                flex: "2",
-                width: "80%",
+                flex: 2,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                margin: "10px",
+                gap: "10px",
               }}
             >
+              <img src={carModal1} style={{ width: "100%" }} alt="car1" />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  width: "100%",
+                  justifyContent: "space-between",
+                }}
+              >
+                <img src={carModal2} style={{ width: "32%" }} alt="car2" />
+                <img src={carModal3} style={{ width: "32%" }} alt="car3" />
+                <img src={carModal4} style={{ width: "32%" }} alt="car4" />
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                width: "30%",
+                height: "100%",
+                padding: "10px",
+                gap: "20px",
+              }}
+            >
+              <span style={{ fontSize: "20px", color: "white", textAlign: "right" }}>BMW X4</span>
+              <div style={{ display: "flex", gap: 10, width: "100%" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "50%",
+                    flexDirection: "column",
+                    borderRadius: "15px",
+                    boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                    fontSize: "16px",
+                    color: "white",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "15px",
+                    gap: "5px",
+                  }}
+                >
+                  <span style={{ color: "gray", fontSize: "8px" }}>:سال تولید</span>
+                  <span style={{ color: "white", fontSize: "12px" }}>2015</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    width: "50%",
+                    flexDirection: "column",
+                    borderRadius: "15px",
+                    boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                    fontSize: "16px",
+                    color: "white",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "15px",
+                    gap: "5px",
+                  }}
+                >
+                  <span style={{ color: "gray", fontSize: "8px" }}>:کارکرد</span>
+                  <span style={{ color: "white", fontSize: "12px" }}>70 km</span>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  flexDirection: "column",
+                  borderRadius: "15px",
+                  boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                  fontSize: "16px",
+                  color: "white",
+                  alignItems: "center",
+                  padding: "15px",
+                  gap: "5px",
+                }}
+              >
+                <span style={{ color: "gray", fontSize: "8px" }}>:وضعیت بدنه</span>
+                <span style={{ color: "white", fontSize: "12px" }}>بدون رنگ</span>
+              </div>
+              <span
+                style={{
+                  display: "flex",
+                  textAlign: "right",
+                  color: "white",
+                  fontSize: "10px",
+                  lineHeight: "20px",
+                  fontWeight: "lighter",
+                }}
+              >
+                توضیحات خودرو توضیحات خودرو خودرو توضیحات خودرو توضیحات خودرو توضیحات خودرو توضیحات
+                خودرو توضیحات خودرو توضیحات خودرو
+              </span>
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  width: "inherit",
-                  justifyContent: "center",
+                  direction: "rtl",
+                  color: "white",
+                  gap: "5px",
                 }}
               >
-                <img src={carModal1} style={{}} alt="car1" />
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "row",
-                    height: "20%",
-                    width: "100%",
-                    justifyContent: "space-between",
+                    gap: "5px",
+                    justifyContent: "right",
+                    alignItems: "center",
                   }}
                 >
-                  <img src={carModal2} style={{ width: "30%" }} alt="car2" />
-                  <img src={carModal3} style={{ width: "30%" }} alt="car3" />
-                  <img src={carModal4} style={{ width: "30%" }} alt="car4" />
-                </div>
-              </div>
-            </div>
-            <div style={{ flex: "1", width: "90%", height: "100%" }}>
-              <span>BMW X4</span>
-              <div>
-                <div style={{ display: "flex" }}>
-                  <div
-                    style={{
-                      borderRadius: "15px",
-                      boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
-                    }}
-                  >
-                    <div>
-                      <span>کارکرد:</span>
-                      <span>70 km</span>
-                    </div>
-                  </div>
-                  <div
-                    style={{
-                      borderRadius: "15px",
-                      boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
-                    }}
-                  >
-                    <div>
-                      <span>سال تولید:</span>
-                      <span>2015</span>
-                    </div>
-                  </div>
+                  <span style={{ fontSize: "10px" }}>وضعیت:</span>
+                  <span style={{ fontSize: "10px", color: "#33FF00" }}>موچود</span>
                 </div>
                 <div
                   style={{
-                    borderRadius: "15px",
-                    boxShadow: "rgb(0, 0, 0) 0px 0px 11px 1px inset",
+                    display: "flex",
+                    gap: "5px",
+                    justifyContent: "right",
+                    alignItems: "center",
                   }}
                 >
-                  <div>
-                    <span>وضعیت بدنه:</span>
-                    <span>بدون رنگ</span>
-                  </div>
+                  <span style={{ fontSize: "10px" }}>قیمت:</span>
+                  <span style={{ fontSize: "16px", color: "#FFA200" }}>9,800,000</span>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "5px",
+                    justifyContent: "right",
+                    alignItems: "center",
+                  }}
+                >
+                  <span style={{ fontSize: "10px" }}>شماره تماس:</span>
+                  <span style={{ fontSize: "12px" }}>0912 505 1070</span>
                 </div>
               </div>
             </div>
@@ -479,15 +581,16 @@ export default function Main() {
               alignItems: "center",
               backgroundColor: "#363636",
               color: "white",
-              width: "20px",
-              height: "20px",
+              width: "25px",
+              height: "25px",
               borderRadius: "50%",
+              cursor: "pointer",
             }}
             onClick={() => {
               setOpen(false);
             }}
           >
-            X
+            <img src={closeBtn} style={{ width: "10px", height: "10px" }} alt="closebtn" />
           </span>
         </div>
       )}

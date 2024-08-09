@@ -1,5 +1,4 @@
 import React from "react";
-import Carousel from "./Carousel";
 import "../scss/header.scss";
 import HeaderLogo from "../assets/header-logo.svg";
 import headerCar1 from "../assets/header-car1.svg";
@@ -10,9 +9,9 @@ export default function Header() {
     <div className="header">
       <img style={{ left: "0" }} className="header-image" src={headerCar1} alt="header1" />
       <div className="header-text">
-        <span style={{ marginBottom: "20px" }}>درباره ما</span>
-        <img src={HeaderLogo} alt="logo" />
-        <span style={{ marginBottom: "20px" }}>ارتباط با ما</span>
+        <span style={{ marginBottom: "20px", cursor: "pointer" }}>درباره ما</span>
+        <img style={{ cursor: "pointer" }} src={HeaderLogo} alt="logo" />
+        <span style={{ marginBottom: "20px", cursor: "pointer" }}>ارتباط با ما</span>
       </div>
       <img style={{ right: "0" }} className="header-image" src={headerCar3} alt="header3" />
     </div>
