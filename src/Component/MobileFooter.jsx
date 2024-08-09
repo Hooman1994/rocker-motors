@@ -17,35 +17,37 @@ export default function MobileFooter() {
       }}
       className="footer"
     >
-      <img
-        style={{ position: "absolute", width: "18%", left: "27%" }}
-        src={footerImage}
-        alt="footerImage"
-      />
-      <div style={{ display: "flex", flexDirection: "column", width: "44vw", alignItems: "end" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          fontSize: "12px",
+          borderRadius: "5px",
+          justifyContent: "center",
+          color: "#CFCFCF",
+          textAlign: "right",
+        }}
+      >
+        جهت اطلاع از آخرین آگهی ها اینستاگرام راکرموتورز را دنبال کنید
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "90%",
+          alignItems: "end",
+          margin: "40px 0 100px 0",
+        }}
+      >
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "end",
-            width: "25vw",
+            padding: "10px 30px",
+            gap: "60px",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "inherit",
-              fontSize: "12px",
-              height: "70px",
-              borderRadius: "5px",
-              justifyContent: "center",
-              color: "#CFCFCF",
-              textAlign: "right",
-            }}
-          >
-            جهت اطلاع از آخرین آگهی ها اینستاگرام راکرموتورز را دنبال کنید
-          </div>
           <div
             style={{
               display: "flex",
@@ -65,8 +67,10 @@ export default function MobileFooter() {
             <img src={instagramLogo} style={{ width: "20px" }} alt="instagramLogo" />
             <span>Rockermotors</span>
           </div>
+          <span style={{ display: "flex", color: "#DCDCDC", fontSize: "10px" }}>
+            :پل های ارتباطی دیگر
+          </span>
         </div>
-
         <div
           style={{
             padding: "15px",
@@ -85,14 +89,20 @@ export default function MobileFooter() {
             backgroundColor: "#11141A",
           }}
         >
-          <span>:پل های ارتباطی دیگر</span>
           <div
-            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "5px",
+              padding: "15px",
+            }}
           >
             <img src={whatsappLogo} alt="whatsapplogo" style={{ width: "15px" }} />
             <img src={telegramLogo} alt="telegramlogo" style={{ width: "15px" }} />
-            <span style={{ color: "white" }}>0912 505 1070</span>
+            <span style={{ color: "white",  fontSize: "16px" }}>0912 505 1070</span>
           </div>
+          <img style={{ position:"absolute", width: "35%", top: "50px" , left:"8%" }} src={footerImage} alt="footerImage" />
         </div>
       </div>
     </div>
