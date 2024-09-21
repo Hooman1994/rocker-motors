@@ -279,7 +279,7 @@ export default function MobileMain() {
             میهمانان اخیر راکرموتورز
           </span>
           <Carousel
-            swipeable={false}
+            swipeable={true}
             draggable={true}
             showDots={false}
             responsive={responsive}
@@ -290,7 +290,7 @@ export default function MobileMain() {
             customTransition="all .5"
             transitionDuration={1000}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
           >
