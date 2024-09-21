@@ -6,24 +6,24 @@ import SliderImage3 from "../assets/sliderImage3.jpg";
 export default function CarouselComponent() {
   return (
     <>
-      <Carousel style={{ width: "700px", height: "350px", paddingBottom: "50px" }} fade>
+      <Carousel style={{ width: "750px", height: "450px", paddingBottom: "50px" }} fade>
         <Carousel.Item>
           <img
-            style={{ width: "700px", height: "300px", objectFit: "cover" }}
+            style={{ width: "750px", height: "400px", objectFit: "cover" }}
             src={SliderImage}
             alt="image1"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ width: "700px", height: "300px", objectFit: "cover" }}
+            style={{ width: "750px", height: "400px", objectFit: "cover" }}
             src={SliderImage2}
             alt="image2"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ width: "700px", height: "300px", objectFit: "cover" }}
+            style={{ width: "750px", height: "400px", objectFit: "cover" }}
             src={SliderImage3}
             alt="image3"
           />

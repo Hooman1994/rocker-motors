@@ -75,8 +75,8 @@ export default function Main() {
         style={{ display: "flex", flexDirection: "column", margin: "0 0 20% 0", gap: "150px" }}
         className="body"
       >
-        <div style={{ position: "relative" }}>
-          <div style={{ display: "flex", flexDirection: "column", position: "relative" }}>
+        <div style={{ position: "absolute", left: "0", right: "0" }}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <CarouselComponent />
             <div
               style={{
@@ -84,7 +84,7 @@ export default function Main() {
                 paddingBottom: "10px",
                 backgroundColor: "#11151B",
                 bottom: "20px",
-                width: "700px",
+                width: "750px",
                 height: "30px",
               }}
             ></div>
@@ -97,10 +97,10 @@ export default function Main() {
               top: "10%",
               display: "flex",
               flexDirection: "column",
-              right: "7%",
+              right: "13%",
               backgroundColor: "#11151B",
               zIndex: "1",
-              width: "33%",
+              width: "30%",
               height: "180px",
               padding: "20px",
               borderRadius: "5px",
@@ -142,6 +142,7 @@ export default function Main() {
               position: "absolute",
               left: "0",
               right: "0",
+              top: "33%",
             }}
           >
             <div
@@ -225,7 +226,7 @@ export default function Main() {
         </div>
         <div
           style={{
-            margin: "20% 0 0 0",
+            margin: "900px 0 0 0",
             display: "flex",
             width: "100%",
             alignItems: "center",
