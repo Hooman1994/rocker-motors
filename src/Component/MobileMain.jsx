@@ -283,12 +283,13 @@ export default function MobileMain() {
             draggable={true}
             showDots={false}
             responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
+            ssr={true}
             infinite={true}
+            autoPlay={true}
             autoPlaySpeed={5000}
             keyBoardControl={true}
-            customTransition="all .5"
             transitionDuration={1000}
+            customTransition="transform 1000ms ease"
             containerClass="carousel-container"
             // removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"

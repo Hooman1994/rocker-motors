@@ -291,20 +291,19 @@ export default function Main() {
             میهمانان اخیر راکرموتورز
           </span>
           <Carousel
-            swipeable={false}
+            swipeable={true}
             draggable={true}
             showDots={false}
             responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
+            ssr={true}
             infinite={true}
-            autoPlay={deviceType !== "mobile" ? true : false}
-            autoPlaySpeed={5000}
+            autoPlay={true}
+            autoPlaySpeed={7000}
             keyBoardControl={true}
-            customTransition="all .5"
             transitionDuration={1000}
+            customTransition="transform 1000ms ease"
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            deviceType={deviceType}
+            // removeArrowOnDeviceType={["tablet", "mobile"]}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
           >
