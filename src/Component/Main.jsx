@@ -420,7 +420,6 @@ export default function Main() {
               border: "1px solid #FFA200",
               borderRadius: "10px",
               width: "60%",
-              height: "fit-content",
               padding: "10px",
               boxShadow: "0px 0px 63px -40px rgba(255,255,255,1)",
             }}
@@ -437,7 +436,7 @@ export default function Main() {
             >
               <img
                 src={modalMainImage}
-                style={{ width: "100%", height: "400px", objectFit: "cover" }}
+                style={{ width: "100%", maxHeight: "300px", objectFit: "cover" }}
                 alt="modalMainImage"
               />
 
@@ -456,7 +455,7 @@ export default function Main() {
                       <img
                         key={index}
                         src={image}
-                        style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                        style={{ width: "18%", maxHeight: "100px", objectFit: "cover" }}
                         alt="carImage"
                         id={`carImage ${index}`}
                         onClick={() => {
