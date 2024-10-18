@@ -9,14 +9,19 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Car from "../assets/car.png";
 import Phone from "../assets/phone.svg";
-import carModal1 from "../assets/carModal1.png";
-import carModal2 from "../assets/carModal2.png";
-import carModal3 from "../assets/carModal3.png";
-import carModal4 from "../assets/carModal4.png";
+import CarouselData from "../assets/data/CarouselData";
 import closeBtn from "../assets/closebtn.png";
 
 export default function MobileMain() {
   const [open, setOpen] = useState(false);
+  const [selectedCarouselItem, setSelectedCarouselItem] = useState({});
+  const [modalMainImage, setModalMainImage] = useState();
+  const scrollToContactUs = () => {
+    const contactUsSection = document.getElementById("contact-us");
+    if (contactUsSection) {
+      contactUsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -50,16 +55,6 @@ export default function MobileMain() {
       description: "متن توضیحات متن توضیحات متن توضیحات متن توضیحات متن توضیحات متن",
       image: CustomerSatisfaction,
     },
-  ];
-  const sliderItems = [
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 3, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 1, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 3, phone: "" },
-    { image: Car, title: "BMW x6", info: "2015 - 70kM", status: 2, phone: "" },
   ];
   const statusEnum = { 1: "موجود", 2: "ناموجود", 3: "نامشخص" };
   return (
@@ -97,7 +92,7 @@ export default function MobileMain() {
             }}
           >
             <img style={{ width: "18px", height: "18px" }} src={ChevronLeft} alt="chevron" />
-            <span>اطلاعات تماس</span>
+            <span onClick={scrollToContactUs}>اطلاعات تماس</span>
           </div>
         </div>
 
@@ -196,16 +191,17 @@ export default function MobileMain() {
             >
               آدرس دفتر: تهران, محمودیه, خیابان سالار, پلاک14, ساختمان سالوک4, واحد401
             </span>
-            <span
+            <a
               style={{
                 display: "flex",
                 flexDirection: "row-reverse",
                 fontSize: "12px",
                 fontWeight: "bold",
               }}
+              href={`tel:09125051070`}
             >
-              0912 505 1070
-            </span>
+              09125051070
+            </a>
           </div>
         </div>
 
@@ -295,8 +291,8 @@ export default function MobileMain() {
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
           >
-            {sliderItems.length > 0 &&
-              sliderItems.map((item, index) => {
+            {CarouselData?.length > 0 &&
+              CarouselData.map((item, index) => {
                 return (
                   <div
                     style={{
@@ -306,12 +302,14 @@ export default function MobileMain() {
                       cursor: "pointer",
                     }}
                     onClick={() => {
+                      setSelectedCarouselItem(item);
+                      setModalMainImage(item.images[0]);
                       return setOpen(true);
                     }}
                   >
                     <img
-                      style={{ backgroundColor: "gray", height: "250px" }}
-                      src={item.image}
+                      style={{ backgroundColor: "gray", height: "250px", objectFit: "cover" }}
+                      src={item.defaultImage}
                       alt="slider1"
                     />
                     <div
@@ -412,9 +410,12 @@ export default function MobileMain() {
               margin: "0 20px",
               padding: "10px",
               boxShadow: "0px 0px 63px -40px rgba(255,255,255,1)",
+              width: "96%",
             }}
           >
-            <span style={{ fontSize: "20px", color: "white", textAlign: "right" }}>BMW X4</span>
+            <span style={{ fontSize: "20px", color: "white", textAlign: "right" }}>
+              {selectedCarouselItem.title}
+            </span>
             <div
               style={{
                 flex: 2,
@@ -425,18 +426,36 @@ export default function MobileMain() {
                 gap: "10px",
               }}
             >
-              <img src={carModal1} style={{ width: "100%" }} alt="car1" />
+              <img
+                src={modalMainImage}
+                style={{ width: "100%", height: "200px", objectFit: "cover" }}
+                alt="modalMainImage"
+              />
+
               <div
                 style={{
                   display: "flex",
                   flexDirection: "row",
                   width: "100%",
                   justifyContent: "space-between",
+                  gap: "inherit",
                 }}
               >
-                <img src={carModal2} style={{ width: "32%" }} alt="car2" />
-                <img src={carModal3} style={{ width: "32%" }} alt="car3" />
-                <img src={carModal4} style={{ width: "32%" }} alt="car4" />
+                {selectedCarouselItem?.images?.length > 0 &&
+                  selectedCarouselItem.images?.map((image, index) => {
+                    return (
+                      <img
+                        key={index}
+                        src={image}
+                        style={{ width: "50px", objectFit: "cover" }}
+                        alt="carImage"
+                        id={`carImage ${index}`}
+                        onClick={() => {
+                          setModalMainImage(image);
+                        }}
+                      />
+                    );
+                  })}
               </div>
             </div>
             <div
@@ -467,7 +486,9 @@ export default function MobileMain() {
                   }}
                 >
                   <span style={{ color: "gray", fontSize: "8px" }}>:سال تولید</span>
-                  <span style={{ color: "white", fontSize: "12px" }}>2015</span>
+                  <span style={{ color: "white", fontSize: "12px" }}>
+                    {selectedCarouselItem.year}
+                  </span>
                 </div>
                 <div
                   style={{
@@ -485,7 +506,9 @@ export default function MobileMain() {
                   }}
                 >
                   <span style={{ color: "gray", fontSize: "8px" }}>:کارکرد</span>
-                  <span style={{ color: "white", fontSize: "12px" }}>70 km</span>
+                  <span style={{ color: "white", fontSize: "12px" }}>
+                    {selectedCarouselItem.kilometer}
+                  </span>
                 </div>
                 <div
                   style={{
@@ -502,7 +525,9 @@ export default function MobileMain() {
                   }}
                 >
                   <span style={{ color: "gray", fontSize: "8px" }}>:وضعیت بدنه</span>
-                  <span style={{ color: "white", fontSize: "12px" }}>بدون رنگ</span>
+                  <span style={{ color: "white", fontSize: "12px" }}>
+                    {selectedCarouselItem.bodyCondition}
+                  </span>
                 </div>
               </div>
               <div
@@ -524,8 +549,7 @@ export default function MobileMain() {
                     fontWeight: "lighter",
                   }}
                 >
-                  توضیحات خودرو توضیحات خودرو خودرو توضیحات خودرو توضیحات خودرو توضیحات خودرو
-                  توضیحات خودرو توضیحات خودرو توضیحات خودرو
+                  {selectedCarouselItem.description}
                 </span>
                 <div
                   style={{
@@ -546,7 +570,19 @@ export default function MobileMain() {
                     }}
                   >
                     <span style={{ fontSize: "10px" }}>وضعیت:</span>
-                    <span style={{ fontSize: "10px", color: "#33FF00" }}>موچود</span>
+                    <span
+                      style={{
+                        fontSize: "10px",
+                        color:
+                          selectedCarouselItem.status === 1
+                            ? "#33FF00"
+                            : selectedCarouselItem.status === 2
+                            ? "#FFA200"
+                            : "red",
+                      }}
+                    >
+                      {statusEnum[selectedCarouselItem.status]}
+                    </span>
                   </div>
                   <div
                     style={{
@@ -557,7 +593,9 @@ export default function MobileMain() {
                     }}
                   >
                     <span style={{ fontSize: "10px" }}>قیمت:</span>
-                    <span style={{ fontSize: "16px", color: "#FFA200" }}>9,800,000</span>
+                    <span style={{ fontSize: "16px", color: "#FFA200" }}>
+                      {selectedCarouselItem?.price?.toLocaleString()}
+                    </span>
                   </div>
                   <div
                     style={{
@@ -568,9 +606,12 @@ export default function MobileMain() {
                     }}
                   >
                     <span style={{ fontSize: "10px" }}>شماره تماس:</span>
-                    <span dir="ltr" style={{ fontSize: "12px" }}>
-                      0912 505 1070
-                    </span>
+                    <a
+                      style={{ fontSize: "14px" }}
+                      href={`tel:${selectedCarouselItem?.phone?.replace(/-/g, "")}`}
+                    >
+                      {selectedCarouselItem.phone}
+                    </a>
                   </div>
                 </div>
               </div>
