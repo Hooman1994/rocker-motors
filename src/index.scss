@@ -1,10 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
 
+@font-face {
+  font-family: "Diodrum";
+  src: url("./assets/font/DiodrumArabic-Regular.woff") format("woff"),
+    url("./assets/font/DiodrumArabic-Regular.ttf") format("truetype");
+  font-weight: "regular";
+}
+
 body {
   background-color: #030509;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Diodrum", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   position: relative;
   zoom: normal;
 }
