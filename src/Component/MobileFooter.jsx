@@ -8,6 +8,7 @@ import telegramLogo from "../assets/telegramLogo.svg";
 export default function MobileFooter() {
   return (
     <div
+      id="contact-us"
       style={{
         display: "flex",
         position: "relative",
@@ -100,9 +101,15 @@ export default function MobileFooter() {
           >
             <img src={whatsappLogo} alt="whatsapplogo" style={{ width: "15px" }} />
             <img src={telegramLogo} alt="telegramlogo" style={{ width: "15px" }} />
-            <span style={{ color: "white",  fontSize: "16px" }}>0912 505 1070</span>
+            <a style={{ color: "white", fontSize: "16px" }} href={`tel:09125051070`}>
+              09125051070
+            </a>
           </div>
-          <img style={{ position:"absolute", width: "35%", top: "50px" , left:"8%" }} src={footerImage} alt="footerImage" />
+          <img
+            style={{ position: "absolute", width: "35%", top: "50px", left: "8%" }}
+            src={footerImage}
+            alt="footerImage"
+          />
         </div>
       </div>
     </div>

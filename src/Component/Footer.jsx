@@ -8,6 +8,7 @@ import telegramLogo from "../assets/telegramLogo.svg";
 export default function Footer() {
   return (
     <div
+      id="contact-us"
       style={{
         display: "flex",
         position: "relative",
